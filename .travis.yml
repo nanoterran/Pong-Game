@@ -8,6 +8,7 @@ matrix:
       install:
         - sudo apt install luarocks
         - luarocks install busted
+        - luarocks install luacov
       script:
         - busted
     - os: osx
@@ -16,5 +17,6 @@ matrix:
       install:
         - brew install luarocks
         - luarocks install busted
+        - luarocks install luacov
       script:
         - busted
