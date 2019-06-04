@@ -5,13 +5,16 @@ matrix:
     - os: linux
       dist: trusty
       language: lua
-      script:
-        - sudo apt install lua5.3
+      install:
         - sudo apt install luarocks
+        - sudo apt install busted
+      script:
+        - busted
     - os: osx
       osx_image: xcode10.2
       language: lua
-      script:
-        - brew install lua5.3
+      install:
         - brew install luarocks
+        - brew install busted
+      script:
         - busted
