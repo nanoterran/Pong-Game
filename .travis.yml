@@ -1,0 +1,16 @@
+sudo: required
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      language: lua
+      script:
+        - apt install lua5.3
+        - apt install luarocks
+    - os: osx
+      osx_image: xcode10.2
+      language: lua
+      script:
+        - brew install lua5.3
+        - brew install luarocks
