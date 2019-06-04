@@ -7,7 +7,7 @@ matrix:
       language: lua
       install:
         - sudo apt install luarocks
-        - sudo apt install busted
+        - luarocks install busted
       script:
         - busted
     - os: osx
@@ -15,6 +15,6 @@ matrix:
       language: lua
       install:
         - brew install luarocks
-        - brew install busted
+        - luarocks install busted
       script:
         - busted
