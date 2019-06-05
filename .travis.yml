@@ -8,8 +8,8 @@ matrix:
       install:
         - sudo apt-get install -y build-essential
         - sudo apt install luarocks
-        - luarocks install busted
-        - luarocks install luacov
+        - sudo luarocks install busted
+        - sudo luarocks install luacov
       script:
         - busted
     - os: osx
