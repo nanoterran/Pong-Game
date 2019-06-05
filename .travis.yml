@@ -6,8 +6,9 @@ matrix:
       dist: trusty
       language: lua
       install:
-        - apt-get update && apt-get -y upgrade
-        - apt-get install -y build-essential
+        - sudo apt-get update
+        - sudo apt-get -y upgrade
+        - sudo apt-get install -y build-essential
         - sudo apt install luarocks
         - luarocks install busted
         - luarocks install luacov
