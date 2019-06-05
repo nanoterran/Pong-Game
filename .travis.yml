@@ -3,7 +3,7 @@ sudo: required
 matrix:
   include:
     - os: linux
-      dist: trusty
+      dist: xenial
       language: lua
       install:
         - sudo apt-get install -y build-essential
