@@ -61,6 +61,8 @@ function love.load()
   ball = Ball({
     x = screen.width / 2 - 2,
     y = screen.height / 2 - 2,
+    x_velocity = math.random(2) == 1 and 100 or -100,
+    y_velocity = math.random(-50, 50),
     width = 15,
     height = 15,
     screen = screen
@@ -119,8 +121,6 @@ function love.update(dt)
       serving_player = 1
       score.player_two = score.player_two + 1
 
-      sounds['score']:play()
-
       if score.player_two == 10 then
         winning_player = 2
         game_state = 'done'
@@ -133,8 +133,6 @@ function love.update(dt)
     if ball.get_x() > screen.width then
       serving_player = 2
       score.player_one = score.player_one + 1
-
-      sounds['score']:play()
 
       if score.player_one == 10 then
         winning_player = 1

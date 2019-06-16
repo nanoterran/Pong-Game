@@ -3,19 +3,21 @@ return function(config)
   local y = config.y
   local width = config.width
   local height = config.height
-  local dx = math.random(2) == 1 and 100 or -100
-  local dy = math.random(-50, 50)
+  local x_velocity = config.x_velocity
+  local y_velocity = config.y_velocity
+  local starting_x = config.x
+  local starting_y = config.y
 
   local function reset()
-    dx = math.random(2) == 1 and 100 or -100
-    dy = math.random(-50, 50)
-    x = config.screen.width / 2 - 2
-    y = config.screen.height / 2 - 2
+    x_velocity = x_velocity
+    y_velocity = y_velocity
+    x = starting_x
+    y = starting_y
   end
 
   local function update(dt)
-    x = x + dx * (dt * 3)
-    y = y + dy * (dt * 3)
+    x = x + x_velocity * (dt * 3)
+    y = y + y_velocity * (dt * 3)
   end
 
   local function collides(paddle)
@@ -46,20 +48,20 @@ return function(config)
     return y
   end
 
-  local function get_dx()
-    return dx
+  local function get_x_velocity()
+    return x_velocity
   end
 
-  local function set_dx(new_dx)
-    dx = new_dx
+  local function set_x_velocity(velocity)
+    x_velocity = velocity
   end
 
-  local function get_dy()
-    return dy
+  local function get_y_velocity()
+    return y_velocity
   end
 
-  local function set_dy(new_dy)
-    dy = new_dy
+  local function set_y_velocity(velocity)
+    y_velocity = velocity
   end
 
   local function get_width()
@@ -75,10 +77,10 @@ return function(config)
     set_x = set_x,
     get_y = get_y,
     set_y = set_y,
-    get_dx = get_dx,
-    set_dx = set_dx,
-    get_dy = get_dy,
-    set_dy = set_dy,
+    get_x_velocity = get_x_velocity,
+    set_x_velocity = set_x_velocity,
+    get_y_velocity = get_y_velocity,
+    set_y_velocity = set_y_velocity,
     get_width = get_width,
     get_height = get_height,
     reset = reset,
