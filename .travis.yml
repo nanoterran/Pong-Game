@@ -12,7 +12,6 @@ matrix:
         - sudo luarocks install luacov
       script:
         - busted
-        - luacov
     - os: osx
       osx_image: xcode10.2
       language: lua
@@ -22,4 +21,3 @@ matrix:
         - luarocks install luacov
       script:
         - busted
-        - luacov
