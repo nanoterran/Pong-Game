@@ -73,48 +73,47 @@ function love.load()
   game_state = 'start'
 end
 
-
 function love.update(dt)
   if game_state == 'serve' then
-    ball.set_dy(math.random(-50, 50))
+    ball.set_y_velocity(math.random(-50, 50))
 
     if serving_player == 1 then
-      ball.set_dy(math.random(140, 200))
+      ball.set_y_velocity(math.random(140, 200))
     else
-      ball.set_dx(-math.random(140, 200))
+      ball.set_x_velocity(-math.random(140, 200))
     end
   elseif game_state == 'play' then
 
     if ball.collides(player_one) then
-      ball.set_dx( -ball.get_dx() * 1.03 )
+      ball.set_x_velocity( -ball.get_x_velocity() * 1.03 )
       ball.set_x( player_one.get_x() + (ball.get_width() + 1) )
 
-      if ball.get_dy() < 0 then
-        ball.set_dy( -math.random(10, 150) )
+      if ball.get_y_velocity() < 0 then
+        ball.set_y_velocity( -math.random(10, 150) )
       else
-        ball.set_dy( math.random(10, 150) )
+        ball.set_y_velocity( math.random(10, 150) )
       end
     end
 
     if ball.collides(player_two) then
-      ball.set_dx( -ball.get_dx() * 1.03 )
+      ball.set_x_velocity( -ball.get_x_velocity() * 1.03 )
       ball.set_x( player_two.get_x() - ball.get_width() )
 
-      if ball.get_dy() < 0 then
-        ball.set_dy( -math.random(10, 150) )
+      if ball.get_y_velocity() < 0 then
+        ball.set_y_velocity( -math.random(10, 150) )
       else
-        ball.set_dy( math.random(10, 150) )
+        ball.set_y_velocity( math.random(10, 150) )
       end
     end
 
     if ball.get_y() <= 0 then
       ball.set_y(0)
-      ball.set_dy( -ball.get_dy() )
+      ball.set_y_velocity( -ball.get_y_velocity() )
     end
 
     if ball.get_y() >= screen.height - ball.get_width() then
       ball.set_y( screen.height - ball.get_width() )
-      ball.set_dy( -ball.get_dy() )
+      ball.set_y_velocity( -ball.get_y_velocity() )
     end
 
     if ball.get_x() < 0 then
